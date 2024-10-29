@@ -23,18 +23,6 @@ final class TezosBlockInfo {
     required this.fees,
   });
 
-  const TezosBlockInfo.empty()
-      : cycle = 0,
-        level = 0,
-        hash = '',
-        timestamp = '',
-        proto = 0,
-        payloadRound = 0,
-        transactions = const [],
-        reward = 0,
-        bonus = 0,
-        fees = 0;
-
   factory TezosBlockInfo.fromJson(Map<String, dynamic> json) {
     return TezosBlockInfo(
       cycle: json['cycle'] ?? 0,
@@ -80,9 +68,7 @@ final class TezosTransaction {
   final num amount;
   final Map<String, dynamic> parameter;
   final dynamic storage;
-  final List<Diff> diffs;
   final String status;
-  final List<Error> errors;
   final bool hasInternals;
   final num tokenTransfersCount;
   final num ticketTransfersCount;
@@ -114,49 +100,13 @@ final class TezosTransaction {
     required this.amount,
     required this.parameter,
     required this.storage,
-    required this.diffs,
     required this.status,
-    required this.errors,
     required this.hasInternals,
     required this.tokenTransfersCount,
     required this.ticketTransfersCount,
     required this.eventsCount,
     required this.quote,
   });
-
-  const TezosTransaction.empty()
-      : type = '',
-        id = 0,
-        level = 0,
-        timestamp = '',
-        block = '',
-        hash = '',
-        deposit = 0,
-        counter = 0,
-        initiator = const Initiator.empty(),
-        sender = const Sender.empty(),
-        senderCodeHash = 0,
-        nonce = 0,
-        gasLimit = 0,
-        gasUsed = 0,
-        storageLimit = 0,
-        storageUsed = 0,
-        bakerFee = 0,
-        storageFee = 0,
-        allocationFee = 0,
-        target = const Target.empty(),
-        targetCodeHash = 0,
-        amount = 0,
-        parameter = const {},
-        storage = null,
-        diffs = const [],
-        status = '',
-        errors = const [],
-        hasInternals = false,
-        tokenTransfersCount = 0,
-        ticketTransfersCount = 0,
-        eventsCount = 0,
-        quote = const Quote.empty();
 
   factory TezosTransaction.fromJson(Map<String, dynamic> json) {
     return TezosTransaction(
@@ -184,13 +134,7 @@ final class TezosTransaction {
       amount: json['amount'] ?? 0,
       parameter: json['parameter'] ?? {},
       storage: json['storage'],
-      diffs: List<Diff>.from(
-        json['diffs']?.map((x) => Diff.fromJson(x)) ?? [],
-      ),
       status: json['status'] ?? '',
-      errors: List<Error>.from(
-        json['errors']?.map((x) => Error.fromJson(x)) ?? [],
-      ),
       hasInternals: json['hasInternals'] ?? false,
       tokenTransfersCount: json['tokenTransfersCount'] ?? 0,
       ticketTransfersCount: json['ticketTransfersCount'] ?? 0,
@@ -209,10 +153,6 @@ final class Initiator {
     required this.address,
   });
 
-  const Initiator.empty()
-      : alias = '',
-        address = '';
-
   factory Initiator.fromJson(Map<String, dynamic> json) {
     return Initiator(
       alias: json['alias'] ?? '',
@@ -229,10 +169,6 @@ final class Sender {
     required this.alias,
     required this.address,
   });
-
-  const Sender.empty()
-      : alias = '',
-        address = '';
 
   factory Sender.fromJson(Map<String, dynamic> json) {
     return Sender(
@@ -251,53 +187,10 @@ final class Target {
     required this.address,
   });
 
-  const Target.empty()
-      : alias = '',
-        address = '';
-
   factory Target.fromJson(Map<String, dynamic> json) {
     return Target(
       alias: json['alias'] ?? '',
       address: json['address'] ?? '',
-    );
-  }
-}
-
-final class Diff {
-  final num bigmap;
-  final String path;
-  final String action;
-  final Map<String, dynamic> content;
-
-  const Diff({
-    required this.bigmap,
-    required this.path,
-    required this.action,
-    required this.content,
-  });
-
-  factory Diff.fromJson(Map<String, dynamic> json) {
-    return Diff(
-      bigmap: json['bigmap'] ?? 0,
-      path: json['path'] ?? '',
-      action: json['action'] ?? '',
-      content: json['content'] ?? {},
-    );
-  }
-}
-
-final class Error {
-  final String type;
-
-  const Error({
-    required this.type,
-  });
-
-  const Error.empty() : type = '';
-
-  factory Error.fromJson(Map<String, dynamic> json) {
-    return Error(
-      type: json['type'] ?? '',
     );
   }
 }
@@ -322,18 +215,6 @@ final class Quote {
     required this.eth,
     required this.gbp,
   });
-
-  const Quote.empty()
-      : this(
-          btc: 0,
-          eur: 0,
-          usd: 0,
-          cny: 0,
-          jpy: 0,
-          krw: 0,
-          eth: 0,
-          gbp: 0,
-        );
 
   factory Quote.fromJson(Map<String, dynamic> json) {
     return Quote(
