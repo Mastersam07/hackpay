@@ -26,8 +26,8 @@ final class AuthRobot extends Robot {
   Future<void> tapContinueButton() async {
     final Finder loginButton = find.text('Continue');
     await tester.tap(loginButton);
-    await tester.pumpAndSettle();
     await Future.delayed(const Duration(milliseconds: 800));
+    await tester.pumpAndSettle();
   }
 
   // Method to check for error messages

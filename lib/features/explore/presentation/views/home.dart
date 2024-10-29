@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackpay/features/explore/presentation/widgets/news_card.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../../shared/mixins.dart';
@@ -32,6 +33,7 @@ class ExploreView extends StatelessWidget with MoneyFormat {
         ],
       ),
       body: ListView(
+        key: const Key('explore_list_view'),
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 16),
         children: [
@@ -110,7 +112,7 @@ class ExploreView extends StatelessWidget with MoneyFormat {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Today’s Top Movers',
+                      'Today\'s Top Movers',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     TextButton(onPressed: () {}, child: const Text('See all'))
@@ -122,11 +124,11 @@ class ExploreView extends StatelessWidget with MoneyFormat {
                   physics: BouncingScrollPhysics(),
                   child: Row(
                     children: [
-                      MoverCard(),
+                      MoverCard(currency: Currency.eth),
                       SizedBox(width: 8),
-                      MoverCard(),
+                      MoverCard(currency: Currency.btc),
                       SizedBox(width: 8),
-                      MoverCard(),
+                      MoverCard(currency: Currency.sol),
                     ],
                   ),
                 ),
@@ -149,92 +151,30 @@ class ExploreView extends StatelessWidget with MoneyFormat {
                 ),
                 const SizedBox(height: 8),
                 ListView.separated(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      if (index == 0) {
-                        return InkWell(
-                          child: SizedBox(
-                            height: 268,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 166,
-                                  width: double.infinity,
-                                  child: Container(color: Colors.black),
-                                ),
-                                const SizedBox(height: 8),
-                                Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Ethereum Co-founder opposes El-salvador Bitcoin Adoption policy',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium,
-                                    ),
-                                    const SizedBox(height: 8),
-                                    DefaultTextStyle(
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!,
-                                      child: const Text(
-                                        'CoinDesk • 2h',
-                                      ),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        );
-                      }
-                      return InkWell(
-                        child: SizedBox(
-                          height: 97,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              SizedBox(
-                                width: 55,
-                                height: 73,
-                                child: Container(color: Colors.black),
-                              ),
-                              const SizedBox(width: 8),
-                              Expanded(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Ethereum Co-founder opposes El-salvador Bitcoin Adoption policy',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium,
-                                    ),
-                                    const SizedBox(height: 8),
-                                    DefaultTextStyle(
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!,
-                                      child: const Text(
-                                        'CoinDesk • 2h',
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    if (index == 0) {
+                      return NewsCard.expanded(
+                        headline:
+                            'Ethereum Co-founder opposes El-salvador Bitcoin Adoption policy',
+                        publication: 'CoinDesk',
+                        publishedAt:
+                            DateTime.now().subtract(const Duration(hours: 2)),
                       );
-                    },
-                    separatorBuilder: (context, index) =>
-                        const Divider(height: 8),
-                    itemCount: 3),
+                    }
+                    return NewsCard.collapsed(
+                      headline:
+                          'Ethereum Co-founder opposes El-salvador Bitcoin Adoption policy',
+                      publication: 'CoinDesk',
+                      publishedAt:
+                          DateTime.now().subtract(const Duration(hours: 2)),
+                    );
+                  },
+                  separatorBuilder: (context, index) =>
+                      const Divider(height: 8),
+                  itemCount: 3,
+                ),
               ],
             ),
           ),

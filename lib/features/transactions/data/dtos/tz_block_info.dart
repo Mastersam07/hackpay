@@ -1,14 +1,14 @@
 final class TezosBlockInfo {
-  final int cycle;
-  final int level;
+  final num cycle;
+  final num level;
   final String hash;
   final String timestamp;
-  final int proto;
-  final int payloadRound;
+  final num proto;
+  final num payloadRound;
   final List<TezosTransaction> transactions;
-  final int reward;
-  final int bonus;
-  final int fees;
+  final num reward;
+  final num bonus;
+  final num fees;
 
   const TezosBlockInfo({
     required this.cycle,
@@ -57,36 +57,36 @@ final class TezosBlockInfo {
 
 final class TezosTransaction {
   final String type;
-  final int id;
-  final int level;
+  final num id;
+  final num level;
   final String timestamp;
   final String block;
   final String hash;
-  final int deposit;
-  final int counter;
+  final num deposit;
+  final num counter;
   final Initiator initiator;
   final Sender sender;
-  final int senderCodeHash;
-  final int nonce;
-  final int gasLimit;
-  final int gasUsed;
-  final int storageLimit;
-  final int storageUsed;
-  final int bakerFee;
-  final int storageFee;
-  final int allocationFee;
+  final num senderCodeHash;
+  final num nonce;
+  final num gasLimit;
+  final num gasUsed;
+  final num storageLimit;
+  final num storageUsed;
+  final num bakerFee;
+  final num storageFee;
+  final num allocationFee;
   final Target target;
-  final int targetCodeHash;
-  final int amount;
+  final num targetCodeHash;
+  final num amount;
   final Map<String, dynamic> parameter;
   final dynamic storage;
   final List<Diff> diffs;
   final String status;
   final List<Error> errors;
   final bool hasInternals;
-  final int tokenTransfersCount;
-  final int ticketTransfersCount;
-  final int eventsCount;
+  final num tokenTransfersCount;
+  final num ticketTransfersCount;
+  final num eventsCount;
   final Quote quote;
 
   const TezosTransaction({
@@ -264,7 +264,7 @@ final class Target {
 }
 
 final class Diff {
-  final int bigmap;
+  final num bigmap;
   final String path;
   final String action;
   final Map<String, dynamic> content;
@@ -303,14 +303,14 @@ final class Error {
 }
 
 final class Quote {
-  final int btc;
-  final int eur;
-  final int usd;
-  final int cny;
-  final int jpy;
-  final int krw;
-  final int eth;
-  final int gbp;
+  final num btc;
+  final num eur;
+  final num usd;
+  final num cny;
+  final num jpy;
+  final num krw;
+  final num eth;
+  final num gbp;
 
   const Quote({
     required this.btc,

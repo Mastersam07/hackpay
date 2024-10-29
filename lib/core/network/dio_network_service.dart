@@ -17,42 +17,6 @@ class DioNetworkService extends NetworkApiService {
   }) : _dio = dio ?? Dio();
 
   @override
-  Future<Map<String, dynamic>> sendFormData<T>(
-      {required ApiRequest request}) async {
-    final data = FormData.fromMap(
-      request.body.map(
-        (key, value) {
-          if (value is File) {
-            return MapEntry(key, MultipartFile.fromFileSync(value.path));
-          } else {
-            return MapEntry(key, value);
-          }
-        },
-      ),
-    );
-    try {
-      final response = await _dio.request(
-        request.endpoint,
-        data: data,
-        queryParameters: request.queryParams,
-        options: Options(
-          method: request.method,
-          contentType: 'Multipart/form-data',
-        ),
-      );
-      final res = response.data;
-
-      return res;
-    } on DioException catch (e) {
-      if (e.error != null) {
-        throw e.error!;
-      } else {
-        throw Exception('An unknown error occurred');
-      }
-    }
-  }
-
-  @override
   Future<Map<String, dynamic>> sendJson<T>(
       {required ApiRequest request}) async {
     try {

@@ -55,6 +55,9 @@ class _TransactionsViewState extends State<TransactionsView> with MoneyFormat {
             ),
             child: Scaffold(
               appBar: AppBar(
+                leading: const BackButton(
+                  key: Key('backButton'),
+                ),
                 title:
                     Text("${widget.currency.name.toUpperCase()} transactions"),
               ),
@@ -67,6 +70,7 @@ class _TransactionsViewState extends State<TransactionsView> with MoneyFormat {
                     final transactionItem =
                         transactionVm.transactions.elementAt(index);
                     return InkWell(
+                      key: Key('transaction_$index'),
                       onTap: () => Navigator.pushNamed(
                           context, TransactionDetailsView.routeName,
                           arguments: transactionItem),

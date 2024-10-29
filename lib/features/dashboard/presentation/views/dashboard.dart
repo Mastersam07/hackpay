@@ -28,6 +28,14 @@ enum Currency {
       IconsaxBold.bitcoin_refresh,
       size: 40,
     ),
+  ),
+  sol(
+    'SOL',
+    'Solana',
+    Icon(
+      IconsaxBold.bitcoin_refresh,
+      size: 40,
+    ),
   );
 
   final String shortName;

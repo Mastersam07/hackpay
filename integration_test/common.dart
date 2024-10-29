@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hackpay/app.dart';
+import 'package:hackpay/core/network/network_api_service.dart';
 import 'package:hackpay/features/auth/domain/repositories/auth_repo.dart';
 import 'package:hackpay/features/auth/viewmodels/login_viewmodel.dart';
 import 'package:hackpay/features/auth/viewmodels/signup_viewmodel.dart';
@@ -18,6 +19,7 @@ Future<void> createApp(WidgetTester tester) async {
 
   GetIt.instance
     ..registerFactory<AuthRepo>(() => MockAuthRepo())
+    ..registerFactory<NetworkApiService>(() => MockDioNetworkService())
     ..registerFactory(() => LoginViewmodel(GetIt.instance()))
     ..registerFactory(() => SignupViewmodel(GetIt.instance()))
     ..registerLazySingleton(() => TransactionViewmodel());

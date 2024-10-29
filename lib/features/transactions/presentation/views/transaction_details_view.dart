@@ -20,6 +20,9 @@ class TransactionDetailsView extends StatelessWidget with MoneyFormat {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Transaction details'),
+        leading: const BackButton(
+          key: Key('backButton'),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16)
