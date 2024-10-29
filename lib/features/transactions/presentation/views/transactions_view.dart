@@ -62,46 +62,69 @@ class _TransactionsViewState extends State<TransactionsView> with MoneyFormat {
                     "${widget.currency.shortName.toUpperCase()} transactions"),
               ),
               body: SafeArea(
-                child: ListView.separated(
-                  padding: const EdgeInsets.symmetric(horizontal: 16)
-                      .copyWith(top: 24),
-                  itemCount: transactionVm.transactions.length,
-                  separatorBuilder: (_, __) => const Divider(height: 32),
-                  itemBuilder: (context, index) {
-                    final transactionItem =
-                        transactionVm.transactions.elementAt(index);
-                    return InkWell(
-                      key: Key('transaction_$index'),
-                      onTap: () => Navigator.pushNamed(
-                          context, TransactionDetailsView.routeName,
-                          arguments: transactionItem),
-                      child: Row(
+                child: Builder(builder: (context) {
+                  if (transactionVm.hasEncounteredError) {
+                    return Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(transactionItem.hash,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style:
-                                        Theme.of(context).textTheme.bodyLarge),
-                                const SizedBox(height: 8),
-                                Text(
-                                  transactionDateFormat
-                                      .format(transactionItem.time),
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                              ],
-                            ),
+                          const Text('An error ocurred!'),
+                          OutlinedButton(
+                            onPressed: transactionVm.fetchTransactions,
+                            child: const Text('Try again'),
                           ),
-                          const SizedBox(width: 16),
-                          const Icon(Icons.chevron_right)
                         ],
                       ),
                     );
-                  },
-                ),
+                  }
+                  if (transactionVm.transactions.isEmpty) {
+                    return const Center(
+                      child: Text('No transactions'),
+                    );
+                  }
+                  return ListView.separated(
+                    padding: const EdgeInsets.symmetric(horizontal: 16)
+                        .copyWith(top: 24),
+                    itemCount: transactionVm.transactions.length,
+                    separatorBuilder: (_, __) => const Divider(height: 32),
+                    itemBuilder: (context, index) {
+                      final transactionItem =
+                          transactionVm.transactions.elementAt(index);
+                      return InkWell(
+                        key: Key('transaction_$index'),
+                        onTap: () => Navigator.pushNamed(
+                            context, TransactionDetailsView.routeName,
+                            arguments: transactionItem),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(transactionItem.hash,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyLarge),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    transactionDateFormat
+                                        .format(transactionItem.time),
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            const Icon(Icons.chevron_right)
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                }),
               ),
             ),
           );

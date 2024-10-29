@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackpay/features/auth/viewmodels/signup_viewmodel.dart';
+import 'package:hackpay/shared/mixins.dart';
 
 import '../../../../core/locator.dart';
 import '../widgets/pay_textfield.dart';
@@ -13,7 +14,7 @@ class SignupView extends StatefulWidget {
   State<SignupView> createState() => _SignupViewState();
 }
 
-class _SignupViewState extends State<SignupView> {
+class _SignupViewState extends State<SignupView> with UiUtils {
   late SignupViewmodel signupVm;
 
   final emailAddress = TextEditingController();
@@ -33,7 +34,8 @@ class _SignupViewState extends State<SignupView> {
           listenable: signupVm,
           builder: (context, _) {
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16)
+                  .copyWith(bottom: 40),
               child: SafeArea(
                 child: Form(
                   key: signupVm.signupFormKey,
@@ -104,7 +106,31 @@ class _SignupViewState extends State<SignupView> {
                           ),
                           const Spacer(),
                           FilledButton(
-                            onPressed: signupVm.signup,
+                            onPressed: () {
+                              unfocus();
+                              signupVm.signup();
+                            },
+                            style: FilledButton.styleFrom(
+                                foregroundBuilder: (context, states, child) {
+                              if (signupVm.isBusy) {
+                                return Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    CircularProgressIndicator.adaptive(
+                                      backgroundColor:
+                                          Theme.of(context).colorScheme.surface,
+                                      valueColor: AlwaysStoppedAnimation(
+                                          Theme.of(context)
+                                              .colorScheme
+                                              .primary),
+                                    ),
+                                    SizedBox(width: 4),
+                                    child!,
+                                  ],
+                                );
+                              }
+                              return child!;
+                            }),
                             child: const Text('Continue'),
                           ),
                         ],

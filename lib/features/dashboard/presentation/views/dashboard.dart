@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../../shared/assets.dart';
 import '../../../../shared/svg_icon.dart';
 import '../../../explore/presentation/views/home.dart';
+import 'connect.dart';
+import 'earnings.dart';
+import 'portfolio.dart';
+import 'spend.dart';
 
 enum Currency {
   btc(
@@ -165,70 +169,6 @@ class _DashboardViewState extends State<DashboardView>
               ],
             );
           }),
-    );
-  }
-}
-
-class ConnectView extends StatelessWidget {
-  const ConnectView({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Connect',
-        style: TextStyle(color: Colors.black),
-      ),
-    );
-  }
-}
-
-class SpendView extends StatelessWidget {
-  const SpendView({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Spend',
-        style: TextStyle(color: Colors.black),
-      ),
-    );
-  }
-}
-
-class EarningsView extends StatelessWidget {
-  const EarningsView({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Earn',
-        style: TextStyle(color: Colors.black),
-      ),
-    );
-  }
-}
-
-class PortfolioView extends StatelessWidget {
-  const PortfolioView({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Portfoilo',
-        style: TextStyle(color: Colors.black),
-      ),
     );
   }
 }
