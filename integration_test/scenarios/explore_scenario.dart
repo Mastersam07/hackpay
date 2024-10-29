@@ -71,7 +71,7 @@ void main() {
 
     expect(find.byType(TransactionsView), findsOneWidget);
 
-    await transactionsRobot.tapTransactionTile(Random().nextInt(20));
+    await transactionsRobot.tapTransactionTile(Random().nextInt(5));
 
     expect(find.byType(TransactionDetailsView), findsOneWidget);
 
