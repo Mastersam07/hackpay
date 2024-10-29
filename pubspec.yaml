@@ -1,0 +1,42 @@
+name: hackpay
+description: "A new Flutter project."
+
+# Prevent accidental publishing to pub.dev.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  cocoicons: ^0.1.0
+  collection: ^1.18.0
+  coolicons: ^1.0.0
+  dio: ^5.7.0
+  ficonsax: ^0.0.3
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_radial_gauge: ^0.0.4
+  get_it: ^8.0.1
+  intl: ^0.19.0
+  phosphor_flutter: ^2.1.0
+  provider: ^6.1.2
+  shared_preferences: ^2.3.2
+  syncfusion_flutter_gauges: ^27.1.56
+
+dev_dependencies:
+  flutter_lints: ^4.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  # Enable generation of localized Strings from arb files.
+  generate: true
+
+  assets:
+    - assets/images/
