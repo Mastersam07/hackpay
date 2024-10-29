@@ -1,31 +1,48 @@
-# hackpay
-
-> Busha's interview task
-
+# 🏗️ Hackpay
 [![codecov](https://codecov.io/gh/Mastersam07/hackpay/branch/dev/graph/badge.svg?token=byEh14Kvsn)](https://codecov.io/gh/Mastersam07/hackpay)
 
-## Getting Started
+## ▶️ Demo Showcase
+[Watch the video](https://raw.githubusercontent.com/username/repository/branch/path/to/video.mp4)
 
-This project is a starting point for a Flutter application that follows the
-[simple app state management
-tutorial](https://flutter.dev/to/state-management-sample).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📚 Description
+This Flutter project is an implementation of the mobile development assessment task. The application allows users to log in and view transactions from the latest blocks on the Bitcoin and Tezos blockchains.
 
-## Assets
+## Key functionalities include:
 
-The `assets` directory houses images, fonts, and any other files you want to
-include with your application.
+- Authentication: Users must sign up and log in before accessing the transactions page. User data is saved locally for session persistence.
+- Transaction Fetching: The app connects to blockchain APIs to retrieve transaction data from the latest block for Bitcoin and Tezos.
+- For Bitcoin, the latest block is fetched using blockchain.info.
+- For Tezos, the latest blocks are fetched via the Tezos API.
 
-The `assets/images` directory contains [resolution-aware
-images](https://flutter.dev/to/resolution-aware-images).
+>
+>[!NOTE] Due to limitations in the Tezos API, the transaction data for Tezos might not be displayed.
+>
 
-## Localization
+## ☄️ Running
+To run the project locally:
 
-This project generates localized messages based on arb files found in
-the `lib/src/localization` directory.
+Clone the repository.
+Install Flutter 3.24.3 and set up your environment.
+Run the app using the command:
 
-To support additional languages, please visit the tutorial on
-[Internationalizing Flutter apps](https://flutter.dev/to/internationalization).
+```bash
+flutter run
+```
+
+You can also run the app by using one of the launch configurations setup for vs code.
+
+Alternatively, download one of the provided APK files from the submission folder and install it on an Android device.
+
+## 🏷️ Project Features
+- Authentication: Secure login and sign-up process.
+- Dashboard: Displays user information and navigation options.
+- Transaction History: Fetches and displays transactions from Bitcoin and Tezos blockchain APIs.
+- Integration Tests: Ensures end-to-end functionality of the login and transaction flow.
+
+## 🧪 Testing
+Integration tests are provided for core functionality
+
+## 🥸 Author
+Samuel Abada
+
