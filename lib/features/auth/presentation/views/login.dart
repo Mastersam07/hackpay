@@ -37,8 +37,7 @@ class _LoginViewState extends State<LoginView> with UiUtils {
           listenable: loginVm,
           builder: (context, _) {
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16)
-                  .copyWith(bottom: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: SafeArea(
                 child: Form(
                   key: loginVm.loginFormKey,

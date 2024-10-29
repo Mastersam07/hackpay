@@ -34,8 +34,7 @@ class _SignupViewState extends State<SignupView> with UiUtils {
           listenable: signupVm,
           builder: (context, _) {
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16)
-                  .copyWith(bottom: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: SafeArea(
                 child: Form(
                   key: signupVm.signupFormKey,
