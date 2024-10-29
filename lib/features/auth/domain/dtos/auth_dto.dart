@@ -11,9 +11,4 @@ final class AuthDto {
         emailAddress: json['emailAddress'],
         password: json['password'],
       );
-
-  Map<String, dynamic> toJson() => {
-        'emailAddress': emailAddress,
-        'password': password,
-      };
 }

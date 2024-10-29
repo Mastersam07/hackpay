@@ -64,8 +64,7 @@ void main() {
     // TODO: Navigate back to Explore page
     // await exploreRobot.tapBackButton();
 
-    await exploreRobot.scrollToWidget(find.byType(AssetCard),
-        scrollDirection: AxisDirection.up);
+    await exploreRobot.scrollToTop();
     await exploreRobot.tapAssetCard(Currency.tz);
 
     expect(find.byType(TransactionsView), findsOneWidget);

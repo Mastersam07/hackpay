@@ -49,14 +49,24 @@ final class ExploreRobot extends Robot {
     final scrollable = find.byKey(const Key('explore_list_view'));
 
     final scrollOffset = scrollDirection == AxisDirection.up
-        ? const Offset(0, 3000)
-        : const Offset(0, -3000);
+        ? const Offset(0, -3000)
+        : const Offset(0, 3000);
 
     await tester.dragUntilVisible(
       widget.first,
       scrollable,
       scrollOffset,
     );
+    await tester.pumpAndSettle();
+  }
+
+  Future<void> scrollToTop() async {
+    final scrollable = find.byKey(const Key('explore_list_view'));
+    await tester.drag(
+      scrollable,
+      const Offset(0, 1000),
+    );
+
     await tester.pumpAndSettle();
   }
 
