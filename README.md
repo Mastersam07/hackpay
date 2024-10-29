@@ -2,7 +2,7 @@
 
 > Busha's interview task
 
-[![codecov](https://codecov.io/gh/Mastersam07/hackpay/graph/badge.svg?token=byEh14Kvsn)](https://codecov.io/gh/Mastersam07/hackpay)
+[![codecov](https://codecov.io/gh/Mastersam07/hackpay/branch/dev/graph/badge.svg?token=byEh14Kvsn)](https://codecov.io/gh/Mastersam07/hackpay)
 
 ## Getting Started
 
