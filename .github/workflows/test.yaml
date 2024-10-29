@@ -10,7 +10,7 @@ env:
 
 jobs:
   run-tests:
-    runs-on: macOS-latest
+    runs-on: macos-14
 
     steps:
       - name: Checkout repository
