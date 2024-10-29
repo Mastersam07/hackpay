@@ -51,6 +51,7 @@ class _SignupViewState extends State<SignupView> {
                           ),
                           const SizedBox(height: 24),
                           PayTextField(
+                            key: const Key('emailField'),
                             title: 'Email address',
                             hint: 'Enter email',
                             controller: emailAddress,
@@ -73,6 +74,7 @@ class _SignupViewState extends State<SignupView> {
                           ),
                           const SizedBox(height: 16),
                           PayTextField(
+                            key: const Key('passwordField'),
                             title: 'Password',
                             hint: 'Enter password',
                             controller: password,
@@ -87,7 +89,7 @@ class _SignupViewState extends State<SignupView> {
                           ),
                           const Spacer(),
                           OutlinedButton(
-                            onPressed: () => signupVm.signup(context),
+                            onPressed: signupVm.signup,
                             child: const Text('Continue'),
                           ),
                         ],

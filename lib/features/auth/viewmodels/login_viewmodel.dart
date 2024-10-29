@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackpay/core/app_view_model/app_view_model.dart';
+import 'package:hackpay/core/routing/router.dart';
 
 import '../../dashboard/presentation/views/dashboard.dart';
 import '../domain/dtos/auth_dto.dart';
@@ -24,13 +25,13 @@ final class LoginViewmodel extends HackyViewModel {
     setState();
   }
 
-  void login(context) async {
+  void login() async {
     if (!loginFormKey.currentState!.validate()) return;
     setState(ViewState.busy);
     final response = await _authRepo.login(_authDto);
 
-    if (response.hasError) {
-      ScaffoldMessenger.of(context).showSnackBar(
+    if (response.hasError && HackPayRouter.currentContext.mounted) {
+      ScaffoldMessenger.of(HackPayRouter.currentContext).showSnackBar(
         SnackBar(
           content: Text(response.error!.message),
           backgroundColor: Colors.red,
@@ -40,8 +41,10 @@ final class LoginViewmodel extends HackyViewModel {
       setState(ViewState.error);
       return;
     }
-    Navigator.restorablePushNamedAndRemoveUntil(
-        context, DashboardView.routeName, (_) => false);
+    if (HackPayRouter.currentContext.mounted) {
+      Navigator.restorablePushNamedAndRemoveUntil(
+          HackPayRouter.currentContext, DashboardView.routeName, (_) => false);
+    }
     setState(ViewState.done);
   }
 }

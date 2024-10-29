@@ -30,6 +30,7 @@ class _LoginViewState extends State<LoginView> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
+          key: const Key('backButton'),
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios),
         ),
@@ -56,6 +57,7 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           const SizedBox(height: 24),
                           PayTextField(
+                            key: const Key('emailField'),
                             title: 'Email address',
                             hint: 'Enter email',
                             controller: emailAddress,
@@ -78,6 +80,7 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           const SizedBox(height: 16),
                           PayTextField(
+                            key: const Key('passwordField'),
                             title: 'Password',
                             hint: 'Enter password',
                             controller: password,
@@ -92,7 +95,7 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           const Spacer(),
                           OutlinedButton(
-                            onPressed: () => loginVm.login(context),
+                            onPressed: loginVm.login,
                             child: const Text('Continue'),
                           ),
                         ],
