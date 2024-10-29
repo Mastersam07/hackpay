@@ -33,6 +33,9 @@ flutter run
 You can also run the app by using one of the launch configurations setup for vs code.
 
 Alternatively, download one of the provided APK files from the submission folder and install it on an Android device.
+<br>
+<a href="https://raw.githubusercontent.com/Mastersam07/hackpay/refs/heads/dev/submission/app-release.apk"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
+<br>
 
 ## 🏷️ Project Features
 - Authentication: Secure login and sign-up process.
