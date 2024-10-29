@@ -54,6 +54,7 @@ void main() {
     await exploreRobot.tapMoverCard(Currency.eth);
 
     // TODO: Navigate back to Explore page
+    // TODO: If MoverCard routes to a new view
     // await exploreRobot.tapBackButton();
 
     // Scroll to the first news tile and tap
@@ -62,6 +63,7 @@ void main() {
     await exploreRobot.tapNewsCard();
 
     // TODO: Navigate back to Explore page
+    // TODO: If NewsCard routes to a new view
     // await exploreRobot.tapBackButton();
 
     await exploreRobot.scrollToTop();

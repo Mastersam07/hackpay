@@ -92,6 +92,7 @@ class _DashboardViewState extends State<DashboardView>
           builder: (_, page, __) {
             return BottomNavigationBar(
               selectedItemColor: Colors.black,
+              backgroundColor: Colors.white,
               onTap: onPageChanged,
               currentIndex: page,
               type: BottomNavigationBarType.fixed,

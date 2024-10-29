@@ -77,8 +77,8 @@ class _PayTextFieldState extends State<PayTextField> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
                         child: switch (obscurePassword) {
-                          true => const Text('SHOW', key: Key('showPassword')),
-                          false => const Text('HIDE', key: Key('hidePassword')),
+                          true => const Text('SHOW'),
+                          false => const Text('HIDE'),
                         },
                       ),
                     ),

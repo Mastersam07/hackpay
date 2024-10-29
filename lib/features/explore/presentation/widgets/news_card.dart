@@ -6,6 +6,7 @@ class NewsCard extends StatelessWidget {
     required this.headline,
     required this.publication,
     required this.publishedAt,
+    required this.imageUrl,
   }) : isExpanded = true;
 
   const NewsCard.collapsed({
@@ -13,11 +14,13 @@ class NewsCard extends StatelessWidget {
     required this.headline,
     required this.publication,
     required this.publishedAt,
+    required this.imageUrl,
   }) : isExpanded = false;
 
   final String headline;
   final String publication;
   final DateTime publishedAt;
+  final String imageUrl;
 
   final bool isExpanded;
 
@@ -69,7 +72,10 @@ class NewsCard extends StatelessWidget {
                   SizedBox(
                     height: 166,
                     width: double.infinity,
-                    child: Container(color: Colors.black),
+                    child: Image.asset(
+                      imageUrl,
+                      fit: BoxFit.fill,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   content,
@@ -87,7 +93,13 @@ class NewsCard extends StatelessWidget {
                 SizedBox(
                   width: 55,
                   height: 73,
-                  child: Container(color: Colors.black),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(6),
+                    child: Image.asset(
+                      imageUrl,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
                 ),
                 const SizedBox(width: 8),
                 Expanded(

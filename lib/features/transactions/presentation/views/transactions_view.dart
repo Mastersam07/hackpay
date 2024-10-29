@@ -38,6 +38,7 @@ class _TransactionsViewState extends State<TransactionsView> with MoneyFormat {
         builder: (context, _) {
           return LoadingOverlay(
             isLoading: transactionVm.isBusy,
+            color: Colors.white,
             opacity: 1,
             progressIndicator: Column(
               mainAxisSize: MainAxisSize.min,
@@ -57,8 +58,8 @@ class _TransactionsViewState extends State<TransactionsView> with MoneyFormat {
             child: Scaffold(
               appBar: AppBar(
                 leading: const HackPayBackButton(),
-                title:
-                    Text("${widget.currency.name.toUpperCase()} transactions"),
+                title: Text(
+                    "${widget.currency.shortName.toUpperCase()} transactions"),
               ),
               body: SafeArea(
                 child: ListView.separated(

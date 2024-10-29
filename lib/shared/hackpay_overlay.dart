@@ -34,13 +34,11 @@ class LoadingOverlayState extends State<LoadingOverlay>
         vsync: this, duration: const Duration(milliseconds: 300));
     _animation = Tween(begin: 0.0, end: 1.0).animate(_controller);
     _animation.addStatusListener((status) {
-      // ignore: unnecessary_statements
       status == AnimationStatus.forward
           ? setState(() {
               _overlayVisible = true;
             })
           : null;
-      // ignore: unnecessary_statements
       status == AnimationStatus.dismissed
           ? setState(() {
               _overlayVisible = false;

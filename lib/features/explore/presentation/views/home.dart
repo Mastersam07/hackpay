@@ -140,6 +140,7 @@ class ExploreView extends StatelessWidget with MoneyFormat {
                   itemBuilder: (context, index) {
                     if (index == 0) {
                       return NewsCard.expanded(
+                        imageUrl: ImageAssets.newsImage,
                         headline:
                             'Ethereum Co-founder opposes El-salvador Bitcoin Adoption policy',
                         publication: 'CoinDesk',
@@ -148,6 +149,7 @@ class ExploreView extends StatelessWidget with MoneyFormat {
                       );
                     }
                     return NewsCard.collapsed(
+                      imageUrl: ImageAssets.newsImage,
                       headline:
                           'Ethereum Co-founder opposes El-salvador Bitcoin Adoption policy',
                       publication: 'CoinDesk',

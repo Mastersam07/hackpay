@@ -1,3 +1,5 @@
+// coverage:ignore-file
+
 import 'package:flutter_svg_plus/flutter_svg.dart';
 
 class ImageAssets {
