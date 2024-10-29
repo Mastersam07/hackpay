@@ -1,41 +1,32 @@
-import 'package:ficonsax/ficonsax.dart';
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
 
+import '../../../../shared/assets.dart';
+import '../../../../shared/svg_icon.dart';
 import '../../../explore/presentation/views/home.dart';
 
 enum Currency {
   btc(
     'BTC',
     'Bitcoin',
-    Icon(
-      IconsaxBold.bitcoin_refresh,
-      size: 40,
-    ),
+    SvgIcon(ImageAssets.bitcoinCoin),
   ),
   eth(
     'ETH',
     'Ethereum',
-    Icon(
-      IconsaxBold.bitcoin_refresh,
-      size: 40,
-    ),
+    SvgIcon(ImageAssets.ethereumCoin),
   ),
   tz(
     'XTZ',
     'Tezos',
-    Icon(
-      IconsaxBold.bitcoin_refresh,
-      size: 40,
+    Image(
+      fit: BoxFit.fill,
+      image: AssetImage(ImageAssets.tezosCoin),
     ),
   ),
   sol(
     'SOL',
     'Solana',
-    Icon(
-      IconsaxBold.bitcoin_refresh,
-      size: 40,
-    ),
+    SvgIcon(ImageAssets.solanaCoin),
   );
 
   final String shortName;
@@ -106,33 +97,68 @@ class _DashboardViewState extends State<DashboardView>
               type: BottomNavigationBarType.fixed,
               items: [
                 BottomNavigationBarItem(
-                  icon: Icon(PhosphorIcons.compass()),
-                  activeIcon:
-                      Icon(PhosphorIcons.compass(PhosphorIconsStyle.fill)),
+                  icon: SvgIcon(
+                    ImageAssets.exploreFilled,
+                    height: Theme.of(context).iconTheme.size,
+                    width: Theme.of(context).iconTheme.size,
+                  ),
+                  activeIcon: SvgIcon(
+                    ImageAssets.exploreFilled,
+                    height: Theme.of(context).iconTheme.size,
+                    width: Theme.of(context).iconTheme.size,
+                  ),
                   label: 'Explore',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(PhosphorIcons.wallet()),
-                  activeIcon:
-                      Icon(PhosphorIcons.wallet(PhosphorIconsStyle.fill)),
+                  icon: SvgIcon(
+                    ImageAssets.walletOutlined,
+                    height: Theme.of(context).iconTheme.size,
+                    width: Theme.of(context).iconTheme.size,
+                  ),
+                  activeIcon: SvgIcon(
+                    ImageAssets.walletOutlined,
+                    height: Theme.of(context).iconTheme.size,
+                    width: Theme.of(context).iconTheme.size,
+                  ),
                   label: 'Portfolio',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(PhosphorIcons.percent()),
-                  activeIcon:
-                      Icon(PhosphorIcons.percent(PhosphorIconsStyle.fill)),
+                  icon: SvgIcon(
+                    ImageAssets.percentOutline,
+                    height: Theme.of(context).iconTheme.size,
+                    width: Theme.of(context).iconTheme.size,
+                  ),
+                  activeIcon: SvgIcon(
+                    ImageAssets.percentOutline,
+                    height: Theme.of(context).iconTheme.size,
+                    width: Theme.of(context).iconTheme.size,
+                  ),
                   label: 'Earn',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(PhosphorIcons.receipt()),
-                  activeIcon:
-                      Icon(PhosphorIcons.receipt(PhosphorIconsStyle.fill)),
+                  icon: SvgIcon(
+                    ImageAssets.spendOutlined,
+                    height: Theme.of(context).iconTheme.size,
+                    width: Theme.of(context).iconTheme.size,
+                  ),
+                  activeIcon: SvgIcon(
+                    ImageAssets.spendOutlined,
+                    height: Theme.of(context).iconTheme.size,
+                    width: Theme.of(context).iconTheme.size,
+                  ),
                   label: 'Spend',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(PhosphorIcons.intersectThree()),
-                  activeIcon: Icon(
-                      PhosphorIcons.intersectThree(PhosphorIconsStyle.fill)),
+                  icon: SvgIcon(
+                    ImageAssets.peerChain,
+                    height: Theme.of(context).iconTheme.size,
+                    width: Theme.of(context).iconTheme.size,
+                  ),
+                  activeIcon: SvgIcon(
+                    ImageAssets.peerChain,
+                    height: Theme.of(context).iconTheme.size,
+                    width: Theme.of(context).iconTheme.size,
+                  ),
                   label: 'Connect',
                 ),
               ],

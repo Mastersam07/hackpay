@@ -2,6 +2,7 @@ import 'package:flutter_svg_plus/flutter_svg.dart';
 
 class ImageAssets {
   static const _baseUri = 'assets/svgs/';
+  static const _pngUri = 'assets/images/';
 
   static const arrowLeft = '${_baseUri}arrow_left.svg';
   static const bellOutlined = '${_baseUri}bell_outlined.svg';
@@ -17,8 +18,8 @@ class ImageAssets {
   static const solanaCoin = '${_baseUri}solana_coin.svg';
   static const spendOutlined = '${_baseUri}spend_outlined.svg';
   static const walletOutlined = '${_baseUri}wallet_outlined.svg';
-  static const tezosCoin = '${_baseUri}tezos_coin.svg';
-  static const newsImage = '${_baseUri}news_image.svg';
+  static const tezosCoin = '${_pngUri}tezos_coin.png';
+  static const newsImage = '${_pngUri}news_image.png';
 
   static Future<void> preloadSvgs() async {
     const assetPaths = [

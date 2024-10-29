@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hackpay/features/explore/presentation/widgets/news_card.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:hackpay/shared/assets.dart';
 
 import '../../../../shared/mixins.dart';
+import '../../../../shared/svg_icon.dart';
 import '../../../dashboard/presentation/views/dashboard.dart';
+import '../widgets/balance_info_card.dart';
 import '../widgets/widgets.dart';
 
 class ExploreView extends StatelessWidget with MoneyFormat {
@@ -15,19 +17,19 @@ class ExploreView extends StatelessWidget with MoneyFormat {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {},
-          icon: Icon(PhosphorIcons.scan()),
+          icon: const SvgIcon(ImageAssets.scan),
         ),
         title: const Text('Explore'),
         centerTitle: true,
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(PhosphorIcons.magnifyingGlass()),
+            icon: const SvgIcon(ImageAssets.search),
           ),
           IconButton(
             onPressed: () {},
-            icon: Badge(
-              child: Icon(PhosphorIcons.bell()),
+            icon: const Badge(
+              child: SvgIcon(ImageAssets.bellOutlined),
             ),
           ),
         ],
@@ -37,43 +39,9 @@ class ExploreView extends StatelessWidget with MoneyFormat {
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 16),
         children: [
-          HomeSection(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      'My balance',
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                    const SizedBox(width: 4),
-                    InkWell(
-                      onTap: () {},
-                      child: const Icon(
-                        Icons.remove_red_eye,
-                        size: 16,
-                      ),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 8),
-                Text.rich(
-                  TextSpan(
-                    text: '₦',
-                    style: Theme.of(context).textTheme.titleSmall,
-                    children: [
-                      TextSpan(
-                        text: currencyFormat(symbol: '').format(5000),
-                        style: Theme.of(context).textTheme.displayMedium,
-                      ),
-                      TextSpan(
-                        text: decimalOnlyFormat.format(00),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+          const HomeSection(
+            child: BalanceInfoCard(
+              balance: 9000.22,
             ),
           ),
           HomeSection(
@@ -87,19 +55,26 @@ class ExploreView extends StatelessWidget with MoneyFormat {
                       'My assets',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    TextButton(onPressed: () {}, child: const Text('See all'))
+                    InkWell(onTap: () {}, child: const Text('See all'))
                   ],
                 ),
+                const SizedBox(height: 16),
                 const AssetCard(
                   currency: Currency.btc,
+                  amount: 24000,
+                  movement: MarketMovement.up(percentage: 1.76),
                 ),
                 const SizedBox(height: 16),
                 const AssetCard(
                   currency: Currency.eth,
+                  amount: 4500,
+                  movement: MarketMovement.down(percentage: 1.76),
                 ),
                 const SizedBox(height: 16),
                 const AssetCard(
                   currency: Currency.tz,
+                  amount: 4500,
+                  movement: MarketMovement.up(percentage: 1.76),
                 ),
               ],
             ),
@@ -115,20 +90,29 @@ class ExploreView extends StatelessWidget with MoneyFormat {
                       'Today\'s Top Movers',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    TextButton(onPressed: () {}, child: const Text('See all'))
+                    InkWell(onTap: () {}, child: const Text('See all'))
                   ],
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 16),
                 const SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   physics: BouncingScrollPhysics(),
                   child: Row(
                     children: [
-                      MoverCard(currency: Currency.eth),
+                      MoverCard(
+                        currency: Currency.eth,
+                        movement: MarketMovement.down(percentage: 1.76),
+                      ),
                       SizedBox(width: 8),
-                      MoverCard(currency: Currency.btc),
+                      MoverCard(
+                        currency: Currency.btc,
+                        movement: MarketMovement.up(percentage: 1.76),
+                      ),
                       SizedBox(width: 8),
-                      MoverCard(currency: Currency.sol),
+                      MoverCard(
+                        currency: Currency.sol,
+                        movement: MarketMovement.up(percentage: 1.76),
+                      ),
                     ],
                   ),
                 ),
@@ -146,7 +130,7 @@ class ExploreView extends StatelessWidget with MoneyFormat {
                       'Trending news',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    TextButton(onPressed: () {}, child: const Text('View more'))
+                    InkWell(onTap: () {}, child: const Text('View more'))
                   ],
                 ),
                 const SizedBox(height: 8),

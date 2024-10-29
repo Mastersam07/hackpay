@@ -30,7 +30,9 @@ class MyApp extends StatelessWidget {
           ),
           scaffoldBackgroundColor: Colors.white,
           textTheme: GoogleFonts.interTextTheme().copyWith(
+            displayMedium: const TextStyle(fontSize: 32),
             titleMedium: const TextStyle(fontSize: 20),
+            titleSmall: const TextStyle(fontSize: 18),
             bodyLarge: const TextStyle(fontSize: 16),
             bodyMedium: const TextStyle(fontSize: 14),
           ),

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../../../shared/assets.dart';
+import '../../../../shared/back_button.dart';
 import '../../../../shared/mixins.dart';
+import '../../../../shared/svg_icon.dart';
 import '../../domain/dtos/transaction_dto.dart';
 import '../widgets/tx_info_card.dart';
 
@@ -20,9 +23,7 @@ class TransactionDetailsView extends StatelessWidget with MoneyFormat {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Transaction details'),
-        leading: const BackButton(
-          key: Key('backButton'),
-        ),
+        leading: const HackPayBackButton(),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16)
@@ -51,14 +52,29 @@ class TransactionDetailsView extends StatelessWidget with MoneyFormat {
               itemCount: metadata.length,
             ),
             const SizedBox(height: 40),
-            const InkWell(
+            InkWell(
+              onTap: () {},
               child: Row(
                 children: [
-                  Icon(Icons.open_in_browser),
-                  SizedBox(width: 16),
-                  Expanded(child: Text('View on blockchain explorer')),
-                  SizedBox(width: 16),
-                  Icon(Icons.chevron_right),
+                  SvgIcon(
+                    ImageAssets.externalLink,
+                    height: Theme.of(context).iconTheme.size,
+                    width: Theme.of(context).iconTheme.size,
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
+                  const SizedBox(width: 16),
+                  const Expanded(child: Text('View on blockchain explorer')),
+                  const SizedBox(width: 16),
+                  RotatedBox(
+                    quarterTurns: 2,
+                    child: SvgIcon(
+                      ImageAssets.arrowLeft,
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onSurface
+                          .withOpacity(.32),
+                    ),
+                  ),
                 ],
               ),
             )

@@ -52,7 +52,8 @@ class _LoginViewState extends State<LoginView> {
                                 .titleMedium
                                 ?.copyWith(
                                   fontWeight: FontWeight.w600,
-                                  color: Color(0xFF000000).withOpacity(.95),
+                                  color:
+                                      const Color(0xFF000000).withOpacity(.95),
                                 ),
                           ),
                           const SizedBox(height: 8),

@@ -10,7 +10,7 @@ final class ExploreRobot extends Robot {
   ExploreRobot(super.tester);
 
   Future<void> tapBalanceVisibilityIcon() async {
-    await tester.tap(find.byIcon(Icons.remove_red_eye));
+    await tester.tap(find.byKey(const Key('balanceVisibility')));
     await tester.pumpAndSettle();
   }
 

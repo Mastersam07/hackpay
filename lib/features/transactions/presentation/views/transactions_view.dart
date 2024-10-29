@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackpay/core/locator.dart';
 import 'package:hackpay/features/transactions/viewmodels/transaction_viewmodel.dart';
+import 'package:hackpay/shared/back_button.dart';
 import 'package:hackpay/shared/mixins.dart';
 import 'package:hackpay/features/dashboard/presentation/views/dashboard.dart';
 import 'package:hackpay/features/transactions/presentation/views/transaction_details_view.dart';
@@ -55,15 +56,14 @@ class _TransactionsViewState extends State<TransactionsView> with MoneyFormat {
             ),
             child: Scaffold(
               appBar: AppBar(
-                leading: const BackButton(
-                  key: Key('backButton'),
-                ),
+                leading: const HackPayBackButton(),
                 title:
                     Text("${widget.currency.name.toUpperCase()} transactions"),
               ),
               body: SafeArea(
                 child: ListView.separated(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16)
+                      .copyWith(top: 24),
                   itemCount: transactionVm.transactions.length,
                   separatorBuilder: (_, __) => const Divider(height: 32),
                   itemBuilder: (context, index) {

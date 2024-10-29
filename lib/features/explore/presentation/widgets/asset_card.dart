@@ -6,10 +6,18 @@ import '../../../../shared/mixins.dart';
 import 'market_movement.dart';
 
 class AssetCard extends StatelessWidget with MoneyFormat {
-  const AssetCard({super.key, this.onTap, required this.currency});
+  const AssetCard({
+    super.key,
+    this.onTap,
+    required this.currency,
+    required this.amount,
+    required this.movement,
+  });
 
   final void Function()? onTap;
   final Currency currency;
+  final num amount;
+  final MarketMovement movement;
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +49,8 @@ class AssetCard extends StatelessWidget with MoneyFormat {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text(currencyFormat().format(24500000)),
-              const MarketMovement.up(percentage: 1.76),
+              Text(currencyFormat().format(amount)),
+              movement,
             ],
           )
         ],

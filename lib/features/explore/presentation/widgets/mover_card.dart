@@ -1,4 +1,3 @@
-import 'package:ficonsax/ficonsax.dart';
 import 'package:flutter/material.dart';
 
 import '../../../dashboard/presentation/views/dashboard.dart';
@@ -8,17 +7,20 @@ class MoverCard extends StatelessWidget {
   const MoverCard({
     super.key,
     required this.currency,
+    required this.movement,
   });
 
   final Currency currency;
+  final MarketMovement movement;
 
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Colors.transparent,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
         side: BorderSide(
-          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.12),
+          color: Theme.of(context).colorScheme.onSurface.withOpacity(.12),
         ),
       ),
       child: InkWell(
@@ -26,7 +28,7 @@ class MoverCard extends StatelessWidget {
         customBorder: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
           side: BorderSide(
-            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.12),
+            color: Theme.of(context).colorScheme.onSurface.withOpacity(.12),
           ),
         ),
         child: ConstrainedBox(
@@ -41,17 +43,14 @@ class MoverCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox.square(
+                SizedBox.square(
                   dimension: 40,
-                  child: Icon(
-                    IconsaxBold.bitcoin_refresh,
-                    size: 40,
-                  ),
+                  child: currency.image,
                 ),
                 const SizedBox(height: 8),
                 Text(currency.longName),
                 const SizedBox(height: 8),
-                const MarketMovement.down(percentage: 1.76),
+                movement,
               ],
             ),
           ),
