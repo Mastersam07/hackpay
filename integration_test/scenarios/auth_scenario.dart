@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:get_it/get_it.dart';
 import 'package:hackpay/features/auth/presentation/views/login.dart';
 import 'package:hackpay/features/auth/presentation/views/signup.dart';
 import 'package:hackpay/features/dashboard/presentation/views/dashboard.dart';
@@ -44,4 +45,6 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(DashboardView), findsOneWidget);
   });
+
+  tearDown(GetIt.instance.reset);
 }

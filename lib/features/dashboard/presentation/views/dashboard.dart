@@ -62,30 +62,10 @@ class _DashboardViewState extends State<DashboardView>
 
   static final _pages = [
     const ExploreView(),
-    const Center(
-      child: Text(
-        'Portfoilo',
-        style: TextStyle(color: Colors.black),
-      ),
-    ),
-    const Center(
-      child: Text(
-        'Earn',
-        style: TextStyle(color: Colors.red),
-      ),
-    ),
-    const Center(
-      child: Text(
-        'Spend',
-        style: TextStyle(color: Colors.black),
-      ),
-    ),
-    const Center(
-      child: Text(
-        'Connect',
-        style: TextStyle(color: Colors.black),
-      ),
-    ),
+    const PortfolioView(),
+    const EarningsView(),
+    const SpendView(),
+    const ConnectView(),
   ];
 
   void onPageChanged(int page) {
@@ -150,6 +130,70 @@ class _DashboardViewState extends State<DashboardView>
               ],
             );
           }),
+    );
+  }
+}
+
+class ConnectView extends StatelessWidget {
+  const ConnectView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text(
+        'Connect',
+        style: TextStyle(color: Colors.black),
+      ),
+    );
+  }
+}
+
+class SpendView extends StatelessWidget {
+  const SpendView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text(
+        'Spend',
+        style: TextStyle(color: Colors.black),
+      ),
+    );
+  }
+}
+
+class EarningsView extends StatelessWidget {
+  const EarningsView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text(
+        'Earn',
+        style: TextStyle(color: Colors.black),
+      ),
+    );
+  }
+}
+
+class PortfolioView extends StatelessWidget {
+  const PortfolioView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text(
+        'Portfoilo',
+        style: TextStyle(color: Colors.black),
+      ),
     );
   }
 }
