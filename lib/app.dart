@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'features/auth/presentation/views/signup.dart';
 import 'features/dashboard/presentation/views/dashboard.dart';
@@ -9,7 +7,6 @@ import 'features/transactions/domain/dtos/transaction_dto.dart';
 import 'features/transactions/presentation/views/transaction_details_view.dart';
 import 'features/transactions/presentation/views/transactions_view.dart';
 
-/// The Widget that configures your application.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -21,17 +18,6 @@ class MyApp extends StatelessWidget {
       },
       child: MaterialApp(
         restorationScopeId: 'app',
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: const [
-          Locale('en', ''), // English, no country code
-        ],
-        onGenerateTitle: (BuildContext context) =>
-            AppLocalizations.of(context)!.appTitle,
         theme: ThemeData(),
         initialRoute: LoginView.routeName,
         onGenerateRoute: (RouteSettings routeSettings) {
