@@ -19,13 +19,13 @@ jobs:
       - name: Launch emulator
         uses: futureware-tech/simulator-action@v4
         with:
-          mode: 'iPhone 14'
+          model: 'iPhone 14'
 
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
           cache: true
-          key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
+          cache-key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
 
 
       - name: Install dependencies
