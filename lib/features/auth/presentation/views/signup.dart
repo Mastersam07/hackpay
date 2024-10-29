@@ -124,7 +124,7 @@ class _SignupViewState extends State<SignupView> with UiUtils {
                                               .colorScheme
                                               .primary),
                                     ),
-                                    SizedBox(width: 4),
+                                    const SizedBox(width: 4),
                                     child!,
                                   ],
                                 );
