@@ -25,7 +25,6 @@ jobs:
         with:
           channel: 'stable'
           cache: true
-          cache-key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
 
 
       - name: Install dependencies
