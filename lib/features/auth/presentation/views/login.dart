@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hackpay/core/locator.dart';
 import 'package:hackpay/features/auth/viewmodels/login_viewmodel.dart';
 
+import '../../../../shared/back_button.dart';
 import '../widgets/pay_textfield.dart';
 
 class LoginView extends StatefulWidget {
@@ -29,11 +30,7 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          key: const Key('backButton'),
-          onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.arrow_back_ios),
-        ),
+        leading: const HackPayBackButton(),
       ),
       body: ListenableBuilder(
           listenable: loginVm,
@@ -48,12 +45,26 @@ class _LoginViewState extends State<LoginView> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          const Text(
+                          Text(
                             'Log in to your account',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF000000).withOpacity(.95),
+                                ),
                           ),
                           const SizedBox(height: 8),
-                          const Text(
+                          Text(
                             'Welcome back! Please enter your registered email address to continue',
+                            style:
+                                Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurface
+                                          .withOpacity(.6),
+                                    ),
                           ),
                           const SizedBox(height: 24),
                           PayTextField(
@@ -79,7 +90,7 @@ class _LoginViewState extends State<LoginView> {
                             },
                           ),
                           const SizedBox(height: 16),
-                          PayTextField(
+                          PayTextField.password(
                             key: const Key('passwordField'),
                             title: 'Password',
                             hint: 'Enter password',
@@ -94,7 +105,7 @@ class _LoginViewState extends State<LoginView> {
                             },
                           ),
                           const Spacer(),
-                          OutlinedButton(
+                          FilledButton(
                             onPressed: loginVm.login,
                             child: const Text('Continue'),
                           ),

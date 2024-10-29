@@ -42,12 +42,27 @@ class _SignupViewState extends State<SignupView> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          const Text(
+                          Text(
                             'Sign up',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  color:
+                                      const Color(0xFF000000).withOpacity(.95),
+                                ),
                           ),
                           const SizedBox(height: 8),
-                          const Text(
+                          Text(
                             'Please signup to continue',
+                            style:
+                                Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurface
+                                          .withOpacity(.6),
+                                    ),
                           ),
                           const SizedBox(height: 24),
                           PayTextField(
@@ -88,7 +103,7 @@ class _SignupViewState extends State<SignupView> {
                             },
                           ),
                           const Spacer(),
-                          OutlinedButton(
+                          FilledButton(
                             onPressed: signupVm.signup,
                             child: const Text('Continue'),
                           ),
