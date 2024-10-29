@@ -17,7 +17,9 @@ dependencies:
   ficonsax: ^0.0.3
   flutter:
     sdk: flutter
+  flutter_svg_plus: ^2.0.13+1
   get_it: ^8.0.1
+  google_fonts: ^6.2.1
   intl: ^0.19.0
   phosphor_flutter: ^2.1.0
   shared_preferences: ^2.3.2
@@ -28,10 +30,9 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  mocktail: ^1.0.4
 
 flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/
+    - assets/svgs/
