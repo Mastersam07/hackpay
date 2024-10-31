@@ -6,9 +6,9 @@ import 'package:get_it/get_it.dart';
 import 'package:hackpay/app.dart';
 import 'package:hackpay/core/network/network_api_service.dart';
 import 'package:hackpay/features/auth/domain/repositories/auth_repo.dart';
-import 'package:hackpay/features/auth/viewmodels/login_viewmodel.dart';
-import 'package:hackpay/features/auth/viewmodels/signup_viewmodel.dart';
-import 'package:hackpay/features/transactions/viewmodels/transaction_viewmodel.dart';
+import 'package:hackpay/features/auth/presentation/viewmodels/login_viewmodel.dart';
+import 'package:hackpay/features/auth/presentation/viewmodels/signup_viewmodel.dart';
+import 'package:hackpay/features/transactions/presentation/viewmodels/transaction_viewmodel.dart';
 
 import 'mocks.dart';
 

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class TxDetailsInfo extends StatelessWidget {
-  const TxDetailsInfo({super.key, required this.title, required this.content});
+  const TxDetailsInfo({super.key, required this.title, required this.subtitle});
 
   final String title;
-  final Widget content;
+  final String subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class TxDetailsInfo extends StatelessWidget {
             child: DefaultTextStyle(
               style: Theme.of(context).textTheme.bodyLarge!,
               textAlign: TextAlign.end,
-              child: content,
+              child: Text(subtitle),
             ),
           ),
         ],

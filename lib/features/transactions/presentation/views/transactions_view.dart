@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackpay/core/locator.dart';
-import 'package:hackpay/features/transactions/viewmodels/transaction_viewmodel.dart';
+import 'package:hackpay/features/transactions/presentation/viewmodels/transaction_viewmodel.dart';
 import 'package:hackpay/shared/back_button.dart';
 import 'package:hackpay/shared/mixins.dart';
 import 'package:hackpay/features/dashboard/presentation/views/dashboard.dart';

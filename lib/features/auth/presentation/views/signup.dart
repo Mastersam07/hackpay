@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackpay/features/auth/viewmodels/signup_viewmodel.dart';
+import 'package:hackpay/features/auth/presentation/viewmodels/signup_viewmodel.dart';
 import 'package:hackpay/shared/mixins.dart';
 
 import '../../../../core/locator.dart';
