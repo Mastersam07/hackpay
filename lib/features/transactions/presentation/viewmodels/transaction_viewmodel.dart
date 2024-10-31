@@ -1,11 +1,11 @@
 import 'package:hackpay/core/locator.dart';
 import 'package:hackpay/features/dashboard/presentation/views/dashboard.dart';
 
-import '../../../core/app_view_model/app_view_model.dart';
-import '../data/repositories/btc_repo.dart';
-import '../data/repositories/tezos_repo.dart';
-import '../domain/dtos/transaction_dto.dart';
-import '../domain/repositories/transaction_repo.dart';
+import '../../../../core/app_view_model/app_view_model.dart';
+import '../../data/repositories/btc_repo.dart';
+import '../../data/repositories/tezos_repo.dart';
+import '../../domain/dtos/transaction_dto.dart';
+import '../../domain/repositories/transaction_repo.dart';
 
 final class TransactionViewmodel extends HackyViewModel {
   late TransactionRepo _repo;

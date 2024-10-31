@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:hackpay/features/auth/domain/dtos/auth_dto.dart';
-import 'package:hackpay/features/auth/presentation/views/login.dart';
+import 'package:hackpay/core/app_view_model/app_view_model.dart';
+import 'package:hackpay/core/routing/router.dart';
 
-import '../../../core/app_view_model/app_view_model.dart';
-import '../../../core/routing/router.dart';
-import '../domain/repositories/auth_repo.dart';
+import '../../../dashboard/presentation/views/dashboard.dart';
+import '../../domain/dtos/auth_dto.dart';
+import '../../domain/repositories/auth_repo.dart';
 
-final class SignupViewmodel extends HackyViewModel {
+final class LoginViewmodel extends HackyViewModel {
   late final AuthRepo _authRepo;
 
   final AuthDto _authDto = AuthDto();
 
-  SignupViewmodel(this._authRepo);
+  LoginViewmodel(this._authRepo);
 
-  final signupFormKey = GlobalKey<FormState>(debugLabel: 'signupForm');
+  final loginFormKey = GlobalKey<FormState>(debugLabel: 'loginForm');
 
   void onEmailChanged(String input) {
     _authDto.emailAddress = input;
@@ -25,10 +25,10 @@ final class SignupViewmodel extends HackyViewModel {
     setState();
   }
 
-  void signup() async {
-    if (!signupFormKey.currentState!.validate()) return;
+  void login() async {
+    if (!loginFormKey.currentState!.validate()) return;
     setState(ViewState.busy);
-    final response = await _authRepo.signup(_authDto);
+    final response = await _authRepo.login(_authDto);
 
     if (response.hasError && HackPayRouter.currentContext.mounted) {
       ScaffoldMessenger.of(HackPayRouter.currentContext).showSnackBar(
@@ -42,8 +42,8 @@ final class SignupViewmodel extends HackyViewModel {
       return;
     }
     if (HackPayRouter.currentContext.mounted) {
-      Navigator.restorablePushNamed(
-          HackPayRouter.currentContext, LoginView.routeName);
+      Navigator.restorablePushNamedAndRemoveUntil(
+          HackPayRouter.currentContext, DashboardView.routeName, (_) => false);
     }
     setState(ViewState.done);
   }

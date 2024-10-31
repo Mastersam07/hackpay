@@ -32,12 +32,12 @@ class TransactionDetailsView extends StatelessWidget with MoneyFormat {
           children: [
             TxDetailsInfo(
               title: 'Hash',
-              content: Text(transaction.hash),
+              subtitle: transaction.hash,
             ),
             const Divider(height: 16),
             TxDetailsInfo(
               title: 'Time',
-              content: Text(transactionDateFormat.format(transaction.time)),
+              subtitle: transactionDateFormat.format(transaction.time),
             ),
             const Divider(height: 16),
             ListView.separated(
@@ -46,7 +46,7 @@ class TransactionDetailsView extends StatelessWidget with MoneyFormat {
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) => TxDetailsInfo(
                 title: metadata.elementAt(index).key,
-                content: Text(metadata.elementAt(index).value.toString()),
+                subtitle: metadata.elementAt(index).value.toString(),
               ),
               separatorBuilder: (_, __) => const Divider(height: 16),
               itemCount: metadata.length,
