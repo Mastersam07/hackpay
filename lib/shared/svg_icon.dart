@@ -9,12 +9,10 @@ class SvgIcon extends StatelessWidget {
     this.height,
     this.width,
     this.alignment,
-    this.semanticLabel,
     this.fit,
   });
 
   final String assetPath;
-  final String? semanticLabel;
   final Color? color;
   final double? height;
   final double? width;
@@ -30,7 +28,6 @@ class SvgIcon extends StatelessWidget {
     return SvgPicture.asset(
       assetPath,
       height: height,
-      semanticsLabel: semanticLabel,
       width: width,
       alignment: alignment ?? Alignment.center,
       fit: fit ?? BoxFit.contain,

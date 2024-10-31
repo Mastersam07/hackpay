@@ -16,7 +16,7 @@ class HackPayBackButton extends StatelessWidget {
       key: const Key('backButton'),
       onPressed: onTap ?? Navigator.of(context).maybePop,
       tooltip: 'Back',
-      icon: const SvgIcon(ImageAssets.arrowLeft, semanticLabel: 'Back icon'),
+      icon: const SvgIcon(ImageAssets.arrowLeft),
     );
   }
 }
